@@ -186,6 +186,14 @@ function Voice() {
               </div>
             </article>
           ))}
+          </div>
+          <button type="button" className="lp-voice-nav next" aria-label="次のインタビュー" onClick={() => goTo(idx + 1)} disabled={idx === people.length - 1}>›</button>
+        </div>
+
+        <div className="lp-voice-dots" role="tablist" aria-label="インタビュー切替">
+          {people.map((_, i) => (
+            <button type="button" key={i} className={`lp-voice-dot ${i === idx ? 'active' : ''}`} aria-label={`${i + 1}人目を表示`} aria-current={i === idx} onClick={() => goTo(i)} />
+          ))}
         </div>
       </div>
     </section>
