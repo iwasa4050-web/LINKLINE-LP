@@ -60,7 +60,7 @@ function TopBar() {
     <header className="lp-topbar">
       <div className="brand">
         BUILD LIFE HIGASHISUMIYOSHI
-        <small>{D.brand.facility}／{D.brand.location}　2026年7月 OPEN</small>
+        <small>{D.brand.facility}／{D.brand.location}<br/>2026年7月 OPEN</small>
       </div>
       <nav className="topnav">
         <a href="#voice">社員の声</a>
