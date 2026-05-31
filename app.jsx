@@ -161,7 +161,15 @@ function Voice() {
 
         <div className="lp-voice-list stagger" ref={useReveal()}>
           {D.voices.people.map((p, i) => (
-            <div className="lp-voice-group reveal" key={i}>
+            <article className="lp-voice-group reveal" key={i}>
+              <div className="lp-voice-person">
+                <div className="lp-voice-avatar">
+                  {p.photo ? <img src={p.photo} alt={p.name} /> : <span>PHOTO</span>}
+                </div>
+                <div className="name">{p.name}</div>
+                <div className="role">{p.role}</div>
+                <div className="years">{p.years}</div>
+              </div>
               {p.video && (
                 <div className="lp-voice-video">
                   <iframe
@@ -172,21 +180,11 @@ function Voice() {
                   ></iframe>
                 </div>
               )}
-              <article className="lp-voice-card tilt">
-                <div className="lp-voice-person">
-                  <div className="lp-voice-avatar">
-                    {p.photo ? <img src={p.photo} alt={p.name} /> : <span>PHOTO</span>}
-                  </div>
-                  <div className="name">{p.name}</div>
-                  <div className="role">{p.role}</div>
-                  <div className="years">{p.years}</div>
-                </div>
-                <div className="lp-voice-body">
-                  <div className="tag">{p.tag}</div>
-                  {p.body.map((par, j) => <p key={j}>{par}</p>)}
-                </div>
-              </article>
-            </div>
+              <div className="lp-voice-body">
+                <div className="tag">{p.tag}</div>
+                {p.body.map((par, j) => <p key={j}>{par}</p>)}
+              </div>
+            </article>
           ))}
         </div>
       </div>
