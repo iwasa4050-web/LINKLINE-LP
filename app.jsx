@@ -513,14 +513,28 @@ function Footer() {
 /* =========== FLOATING CTA =========== */
 function FloatingCta() {
   const [show, setShow] = useState(false);
+  const [overCta, setOverCta] = useState(false);
   useEffect(() => {
     const onScroll = () => setShow(window.scrollY > 600);
     window.addEventListener('scroll', onScroll);
     onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
+    const cta = document.getElementById('cta');
+    let io;
+    if (cta) {
+      io = new IntersectionObserver(
+        (entries) => setOverCta(entries[0].isIntersecting),
+        { threshold: 0.1 }
+      );
+      io.observe(cta);
+    }
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (io) io.disconnect();
+    };
   }, []);
+  const visible = show && !overCta;
   return (
-    <a href={D.brand.lineUrl} target="_blank" rel="noopener noreferrer" onClick={trackLead} className={`lp-float-cta ${show ? 'show' : ''}`}>
+    <a href={D.brand.lineUrl} target="_blank" rel="noopener noreferrer" onClick={trackLead} className={`lp-float-cta ${visible ? 'show' : ''}`}>
       <span className="line-mark">LINE</span>
       LINEで応募・相談する
     </a>
