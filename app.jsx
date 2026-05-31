@@ -150,6 +150,26 @@ function Problems() {
 
 /* =========== VOICE =========== */
 function Voice() {
+  const listRef = useRef(null);
+  const [idx, setIdx] = useState(0);
+  const people = D.voices.people;
+  useEffect(() => {
+    const list = listRef.current;
+    if (!list) return;
+    const onScroll = () => {
+      const step = list.clientWidth * 0.88 + 16;
+      const i = Math.round(list.scrollLeft / step);
+      setIdx(Math.min(Math.max(i, 0), people.length - 1));
+    };
+    list.addEventListener('scroll', onScroll, { passive: true });
+    return () => list.removeEventListener('scroll', onScroll);
+  }, [people.length]);
+  const goTo = (i) => {
+    const list = listRef.current;
+    if (!list) return;
+    const step = list.clientWidth * 0.88 + 16;
+    list.scrollTo({ left: i * step, behavior: 'smooth' });
+  };
   return (
     <section className="lp-section lp-voice" id="voice">
       <div className="lp-container">
@@ -159,33 +179,35 @@ function Voice() {
         </div>
         <p className="lp-voice-intro reveal" ref={useReveal()}>{D.voices.sub}</p>
 
-        <div className="lp-voice-list stagger" ref={useReveal()}>
-          {D.voices.people.map((p, i) => (
-            <article className="lp-voice-group reveal" key={i}>
-              <div className="lp-voice-person">
-                <div className="lp-voice-avatar">
-                  {p.photo ? <img src={p.photo} alt={p.name} /> : <span>PHOTO</span>}
+        <div className="lp-voice-carousel">
+          <button type="button" className="lp-voice-nav prev" aria-label="前のインタビュー" onClick={() => goTo(idx - 1)} disabled={idx === 0}>‹</button>
+          <div className="lp-voice-list stagger" ref={listRef}>
+            {people.map((p, i) => (
+              <article className="lp-voice-group reveal" key={i}>
+                <div className="lp-voice-person">
+                  <div className="lp-voice-avatar">
+                    {p.photo ? <img src={p.photo} alt={p.name} /> : <span>PHOTO</span>}
+                  </div>
+                  <div className="name">{p.name}</div>
+                  <div className="role">{p.role}</div>
+                  <div className="years">{p.years}</div>
                 </div>
-                <div className="name">{p.name}</div>
-                <div className="role">{p.role}</div>
-                <div className="years">{p.years}</div>
-              </div>
-              {p.video && (
-                <div className="lp-voice-video">
-                  <iframe
-                    src={`https://www.youtube.com/embed/${p.video}`}
-                    title={`${p.name} インタビュー`}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  ></iframe>
+                {p.video && (
+                  <div className="lp-voice-video">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${p.video}`}
+                      title={`${p.name} インタビュー`}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                )}
+                <div className="lp-voice-body">
+                  <div className="tag">{p.tag}</div>
+                  {p.body.map((par, j) => <p key={j}>{par}</p>)}
                 </div>
-              )}
-              <div className="lp-voice-body">
-                <div className="tag">{p.tag}</div>
-                {p.body.map((par, j) => <p key={j}>{par}</p>)}
-              </div>
-            </article>
-          ))}
+              </article>
+            ))}
           </div>
           <button type="button" className="lp-voice-nav next" aria-label="次のインタビュー" onClick={() => goTo(idx + 1)} disabled={idx === people.length - 1}>›</button>
         </div>
