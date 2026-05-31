@@ -26,8 +26,8 @@ window.LP_DATA = {
       { n: "3ヶ月", t: "目安の独り立ち期間" },
     ],
     photos: {
-      main:     "images/hero.png",
-      building: "images/building.png",
+      main:     "images/hero.jpg",
+      building: "images/building.jpg",
     },
   },
 
@@ -79,7 +79,7 @@ window.LP_DATA = {
         role: "介護職",
         years: "5年目",
         tag: "社長と距離が近くて、現場の負担を相談しやすい",
-        photo: "images/voice-01.png",
+        photo: "images/voice-01.jpg",
         video: "5jFtPnomvNU",
         body: [
           "元々は調理師をしていました。数年前のコロナで、飲食店がどんどん閉店して行った時に知人にこの職場を紹介して入りました。そこからもう5年になります。",
@@ -147,7 +147,7 @@ window.LP_DATA = {
     eyebrow: "MESSAGE",
     title: "なぜ、人材を\n大切にするのか。",
     quote: "僕の仕事は、みんなが働きやすい環境を整えること",
-    photo: "images/ceo-ota.png",
+    photo: "images/ceo-ota.jpg",
     video: "BVawglVoCkQ",
     body: [
       "Q. もし自分が介護施設に入ることになったら、どんな場所がいいですか？",
@@ -169,21 +169,21 @@ window.LP_DATA = {
         title: "しっかりと休める休憩室",
         body:
           "勤務の合間やお昼休憩に、落ち着いて休める空間を用意しました。電子レンジ・冷蔵庫も完備で、自由に使えます。",
-        photo: "images/facility-break.png",
+        photo: "images/facility-break.jpg",
       },
       {
         tag: "介護設備",
         title: "身体に負担をかけない介護設備",
         body:
           "移乗リフト、介助しやすいベッド配置、立ち上がり補助椅子。ここは足腰を痛める職場ではありません。",
-        photo: "images/facility-equipment.png",
+        photo: "images/facility-equipment.jpg",
       },
       {
         tag: "導線設計",
         title: "動きやすさを考えた導線設計",
         body:
           "広めの廊下・倉庫の中央配置で、無駄な移動をなくしました。利用者さんを見守りやすい設計です。",
-        photo: "images/facility-corridor.png",
+        photo: "images/facility-corridor.jpg",
       },
     ],
   },
