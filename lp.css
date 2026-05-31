@@ -1119,3 +1119,14 @@
   .lp-cta-inner { padding: 44px 24px; }
   .lp-line-btn { font-size: 16px; padding: 16px 22px; gap: 8px; }
 }
+
+
+/* Mobile: honor explicit \n line breaks in narrative copy */
+@media (max-width: 900px) {
+  .lp-voice-intro,
+  .lp-problems-outro,
+  .lp-journey-note,
+  .lp-tour .lp-label-center p,
+  .lp-journey .lp-label-center p,
+  .lp-fit .lp-label-center p { white-space: pre-line; }
+}
