@@ -161,9 +161,9 @@ function Voice() {
 
         <div className="lp-voice-list stagger" ref={useReveal()}>
           {D.voices.people.map((p, i) => (
-            <React.Fragment key={i}>
+            <div className="lp-voice-group reveal" key={i}>
               {p.video && (
-                <div className="lp-voice-video reveal zoom">
+                <div className="lp-voice-video">
                   <iframe
                     src={`https://www.youtube.com/embed/${p.video}`}
                     title={`${p.name} インタビュー`}
@@ -186,7 +186,7 @@ function Voice() {
                   {p.body.map((par, j) => <p key={j}>{par}</p>)}
                 </div>
               </article>
-            </React.Fragment>
+            </div>
           ))}
         </div>
       </div>
