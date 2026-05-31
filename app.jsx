@@ -1,5 +1,6 @@
 const { useState, useEffect, useRef } = React;
 const D = window.LP_DATA;
+const trackLead = () => { try { window.fbq && window.fbq('track', 'Lead'); } catch (e) {} };
 
 /* =====================================================================
    REVEAL HOOK
@@ -65,7 +66,7 @@ function TopBar() {
         <a href="#voice">社員の声</a>
         <a href="#reasons">長く働ける理由</a>
         <a href="#terms">待遇</a>
-        <a href={D.brand.lineUrl} target="_blank" rel="noopener noreferrer" className="pill">LINEで応募</a>
+        <a href={D.brand.lineUrl} target="_blank" rel="noopener noreferrer" onClick={trackLead} className="pill">LINEで応募</a>
       </nav>
     </header>
   );
@@ -90,7 +91,7 @@ function Hero() {
           <div className="lp-hero-note fade-in" style={{animationDelay:'.7s'}}>{D.hero.note}</div>
 
           <div className="lp-hero-ctas fade-in" style={{animationDelay:'.8s'}}>
-            <a href={D.brand.lineUrl} target="_blank" rel="noopener noreferrer" className="lp-btn big">
+            <a href={D.brand.lineUrl} target="_blank" rel="noopener noreferrer" onClick={trackLead} className="lp-btn big">
               <span className="line-ico">L</span>
               LINEで応募・相談する
             </a>
@@ -471,7 +472,7 @@ function CtaBlock() {
         <div className="lp-cta-list">
           {D.cta.body.map((b, i) => <div key={i}>{b}</div>)}
         </div>
-        <a href={D.brand.lineUrl} target="_blank" rel="noopener noreferrer" className="lp-line-btn">
+        <a href={D.brand.lineUrl} target="_blank" rel="noopener noreferrer" onClick={trackLead} className="lp-line-btn">
           <span className="line-mark">LINE</span>
           {D.cta.button}
         </a>
@@ -521,7 +522,7 @@ function FloatingCta() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
   return (
-    <a href={D.brand.lineUrl} target="_blank" rel="noopener noreferrer" className={`lp-float-cta ${show ? 'show' : ''}`}>
+    <a href={D.brand.lineUrl} target="_blank" rel="noopener noreferrer" onClick={trackLead} className={`lp-float-cta ${show ? 'show' : ''}`}>
       <span className="line-mark">LINE</span>
       LINEで応募・相談する
     </a>
