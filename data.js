@@ -4,7 +4,7 @@ window.LP_DATA = {
     company: "株式会社TANAKA",
     facility: "ビルドライフ東住吉",
     facilityType: "住宅型有料老人ホーム",
-    ceoName: "太田 修平",
+    ceoName: "大田 修平",
     ceoTitle: "株式会社TANAKA 代表取締役",
     location: "大阪市東住吉区",
     postal: "546-0024",
