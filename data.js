@@ -1,11 +1,11 @@
 // Care-facility recruitment LP — copy & content
 window.LP_DATA = {
   brand: {
-    company: "株式会社TANAKA",
+    company: "株式会社LINKLINE",
     facility: "ビルドライフ東住吉",
     facilityType: "住宅型有料老人ホーム",
     ceoName: "大田 修平",
-    ceoTitle: "株式会社TANAKA 代表取締役",
+    ceoTitle: "株式会社LINKLINE 代表取締役",
     location: "大阪市東住吉区",
     postal: "546-0024",
     address: "大阪府大阪市東住吉区公園南矢田",
